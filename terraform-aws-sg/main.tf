@@ -1,9 +1,14 @@
 
-resource "aws_instance" "scalr" {
-  ami                    = var.ami
-  instance_type          = var.instance_type
-  subnet_id              = var.subnet
-  vpc_security_group_ids = var.sg
-  key_name               = var.key
-  count                  = var.instance_count
+module "sg" {
+  source  = "./terraform-aws-sg"
+
+  region         = "us-east-1"  // Example value, replace with appropriate region
+  ami            = "ami-12345678"
+  instance_type  = "t2.micro"
+  subnet         = "subnet-12345678"
+  sg             = ["sg-12345678"]
+  key            = "my-keypair"
+  instance_count = 1
+  // Provide other required variables
 }
+
