@@ -1,7 +1,5 @@
 
-module "sg" {
-  source  = "./terraform-aws-sg"
-
+resource "aws_instance" "scalr" {
   region         = "us-east-1"  // Example value, replace with appropriate region
   ami            = "ami-12345678"
   instance_type  = "t2.micro"
