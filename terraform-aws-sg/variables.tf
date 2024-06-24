@@ -3,12 +3,12 @@ variable "region" {
   type        = string
   #default     = "us-east-1"
 }
-variable "ami" {
+/*variable "ami" {
   description = "The AMI ID for the instance"
   type        = string
 }
 
-/*variable "instance_type" {
+variable "instance_type" {
   description = "The instance type"
   type        = string
   default     = "t2.micro"
