@@ -1,4 +1,4 @@
-provider "aws" {
+/*provider "aws" {
   region = "us-east-1"
 }
 
@@ -9,4 +9,28 @@ resource "aws_instance" "scalr" {
   vpc_security_group_ids = ["sg-12345678"]
   key_name               = "my-keypair"
   count                  = 1
+}*/
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
+  }
+
+  required_version = ">= 1.2.0"
+}
+
+provider "aws" {
+  region  = "us-east-1"
+  //profile = "jack.roper"
+}
+
+resource "aws_instance" "example_server" {
+  ami           = "ami-04e914639d0cca79a"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "JacksBlogExample"
+  }
 }
