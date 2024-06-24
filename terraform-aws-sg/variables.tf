@@ -8,7 +8,7 @@ variable "ami" {
   type        = string
 }
 
-/*variable "instance_type" {
+variable "instance_type" {
   description = "The instance type"
   type        = string
   default     = "t2.micro"
@@ -34,4 +34,4 @@ variable "instance_count" {
   type        = number
   default     = 1
 }
-*/
+
